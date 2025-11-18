@@ -29,7 +29,7 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBoxAge = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ButtonInsert = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ButtonConnect
@@ -89,21 +89,21 @@ Partial Class Form1
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Age:"
         '
-        'Button1
+        'ButtonInsert
         '
-        Me.Button1.Location = New System.Drawing.Point(15, 179)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(289, 66)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "CREATE (Insert Data)"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ButtonInsert.Location = New System.Drawing.Point(15, 179)
+        Me.ButtonInsert.Name = "ButtonInsert"
+        Me.ButtonInsert.Size = New System.Drawing.Size(289, 66)
+        Me.ButtonInsert.TabIndex = 7
+        Me.ButtonInsert.Text = "CREATE (Insert Data)"
+        Me.ButtonInsert.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ButtonInsert)
         Me.Controls.Add(Me.TextBoxAge)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxEmail)
@@ -125,5 +125,5 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBoxAge As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents ButtonInsert As Button
 End Class
