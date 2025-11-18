@@ -14,5 +14,6 @@ Public Class Form1
             MessageBox.Show(ex.Message)
             conn.Close()
         End Try
+
     End Sub
 End Class
