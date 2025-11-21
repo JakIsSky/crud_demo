@@ -32,6 +32,10 @@ Partial Class Form1
         Me.ButtonInsert = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ButtonRead = New System.Windows.Forms.Button()
+        Me.ButtonEdit = New System.Windows.Forms.Button()
+        Me.ButtonDelete = New System.Windows.Forms.Button()
+        Me.TextBoxId = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -118,11 +122,49 @@ Partial Class Form1
         Me.ButtonRead.Text = "READ (Retrieve Data)"
         Me.ButtonRead.UseVisualStyleBackColor = True
         '
+        'ButtonEdit
+        '
+        Me.ButtonEdit.Location = New System.Drawing.Point(383, 179)
+        Me.ButtonEdit.Name = "ButtonEdit"
+        Me.ButtonEdit.Size = New System.Drawing.Size(289, 41)
+        Me.ButtonEdit.TabIndex = 10
+        Me.ButtonEdit.Text = "EDIT (Update Data)"
+        Me.ButtonEdit.UseVisualStyleBackColor = True
+        '
+        'ButtonDelete
+        '
+        Me.ButtonDelete.Location = New System.Drawing.Point(383, 226)
+        Me.ButtonDelete.Name = "ButtonDelete"
+        Me.ButtonDelete.Size = New System.Drawing.Size(289, 41)
+        Me.ButtonDelete.TabIndex = 11
+        Me.ButtonDelete.Text = "DELETE (Remove Data)"
+        Me.ButtonDelete.UseVisualStyleBackColor = True
+        '
+        'TextBoxId
+        '
+        Me.TextBoxId.Location = New System.Drawing.Point(507, 146)
+        Me.TextBoxId.Name = "TextBoxId"
+        Me.TextBoxId.Size = New System.Drawing.Size(63, 20)
+        Me.TextBoxId.TabIndex = 12
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(472, 149)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(19, 13)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "Id:"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.TextBoxId)
+        Me.Controls.Add(Me.ButtonDelete)
+        Me.Controls.Add(Me.ButtonEdit)
         Me.Controls.Add(Me.ButtonRead)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ButtonInsert)
@@ -151,4 +193,8 @@ Partial Class Form1
     Friend WithEvents ButtonInsert As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ButtonRead As Button
+    Friend WithEvents ButtonEdit As Button
+    Friend WithEvents ButtonDelete As Button
+    Friend WithEvents TextBoxId As TextBox
+    Friend WithEvents Label4 As Label
 End Class
