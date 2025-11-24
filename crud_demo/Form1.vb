@@ -59,7 +59,7 @@ Public Class Form1
                     cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
                     cmd.Parameters.AddWithValue("@age", CInt(TextBoxAge.Text))
                     cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
-                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxId.Text)) ' Assuming there's a TextBox for ID
+                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxId.Text))
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Record updated successfully!")
                 End Using
@@ -75,7 +75,7 @@ Public Class Form1
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxId.Text)) ' Assuming there's a TextBox for ID
+                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxId.Text))
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Record deleted successfully!")
                 End Using
