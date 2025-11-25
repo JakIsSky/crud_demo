@@ -76,12 +76,22 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MessageBox.Show("Select a row to delete.")
+        End If
+        Dim row As DataGridViewRow = DataGridView1.SelectedRows(0)
+        Dim Id As Integer = row.Cells("id").Value
+
+        If MessageBox.Show("Delete this record?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Return
+        End If
+
         Dim query As String = "DELETE FROM student_tbl WHERE id = @id"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxId.Text))
+                    cmd.Parameters.AddWithValue("@id", Id)
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Record deleted successfully!")
                 End Using
