@@ -100,4 +100,16 @@ Public Class Form1
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.RowIndex >= 0 Then
+            Dim selectedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+            TextBoxName.Text = selectedRow.Cells("name").Value.ToString()
+            TextBoxAge.Text = selectedRow.Cells("age").Value.ToString()
+            TextBoxEmail.Text = selectedRow.Cells("email").Value.ToString()
+
+            TextBoxHiddenId.Text = selectedRow.Cells("id").Value.ToString()
+
+        End If
+    End Sub
 End Class
