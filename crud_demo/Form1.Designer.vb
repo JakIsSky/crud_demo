@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ButtonConnect = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -34,8 +34,6 @@ Partial Class Form1
         Me.ButtonRead = New System.Windows.Forms.Button()
         Me.ButtonEdit = New System.Windows.Forms.Button()
         Me.ButtonDelete = New System.Windows.Forms.Button()
-        Me.TextBoxId = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -140,29 +138,11 @@ Partial Class Form1
         Me.ButtonDelete.Text = "DELETE (Remove Data)"
         Me.ButtonDelete.UseVisualStyleBackColor = True
         '
-        'TextBoxId
-        '
-        Me.TextBoxId.Location = New System.Drawing.Point(507, 146)
-        Me.TextBoxId.Name = "TextBoxId"
-        Me.TextBoxId.Size = New System.Drawing.Size(63, 20)
-        Me.TextBoxId.TabIndex = 12
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(472, 149)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(19, 13)
-        Me.Label4.TabIndex = 13
-        Me.Label4.Text = "Id:"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBoxId)
         Me.Controls.Add(Me.ButtonDelete)
         Me.Controls.Add(Me.ButtonEdit)
         Me.Controls.Add(Me.ButtonRead)
@@ -195,6 +175,4 @@ Partial Class Form1
     Friend WithEvents ButtonRead As Button
     Friend WithEvents ButtonEdit As Button
     Friend WithEvents ButtonDelete As Button
-    Friend WithEvents TextBoxId As TextBox
-    Friend WithEvents Label4 As Label
 End Class
