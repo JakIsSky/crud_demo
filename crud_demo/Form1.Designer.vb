@@ -33,7 +33,7 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ButtonRead = New System.Windows.Forms.Button()
         Me.ButtonEdit = New System.Windows.Forms.Button()
-        Me.ButtonDelete = New System.Windows.Forms.Button()
+        Me.ButtonUpdate = New System.Windows.Forms.Button()
         Me.TextBoxHiddenId = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -127,17 +127,17 @@ Partial Class Form1
         Me.ButtonEdit.Name = "ButtonEdit"
         Me.ButtonEdit.Size = New System.Drawing.Size(289, 41)
         Me.ButtonEdit.TabIndex = 10
-        Me.ButtonEdit.Text = "EDIT (Update Data)"
+        Me.ButtonEdit.Text = "UPDATE (Modify Existing"
         Me.ButtonEdit.UseVisualStyleBackColor = True
         '
-        'ButtonDelete
+        'ButtonUpdate
         '
-        Me.ButtonDelete.Location = New System.Drawing.Point(383, 226)
-        Me.ButtonDelete.Name = "ButtonDelete"
-        Me.ButtonDelete.Size = New System.Drawing.Size(289, 41)
-        Me.ButtonDelete.TabIndex = 11
-        Me.ButtonDelete.Text = "DELETE (Remove Data)"
-        Me.ButtonDelete.UseVisualStyleBackColor = True
+        Me.ButtonUpdate.Location = New System.Drawing.Point(383, 226)
+        Me.ButtonUpdate.Name = "ButtonUpdate"
+        Me.ButtonUpdate.Size = New System.Drawing.Size(289, 41)
+        Me.ButtonUpdate.TabIndex = 11
+        Me.ButtonUpdate.Text = "DELETE (Remove Data)"
+        Me.ButtonUpdate.UseVisualStyleBackColor = True
         '
         'TextBoxHiddenId
         '
@@ -152,7 +152,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.TextBoxHiddenId)
-        Me.Controls.Add(Me.ButtonDelete)
+        Me.Controls.Add(Me.ButtonUpdate)
         Me.Controls.Add(Me.ButtonEdit)
         Me.Controls.Add(Me.ButtonRead)
         Me.Controls.Add(Me.DataGridView1)
@@ -183,6 +183,6 @@ Partial Class Form1
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ButtonRead As Button
     Friend WithEvents ButtonEdit As Button
-    Friend WithEvents ButtonDelete As Button
+    Friend WithEvents ButtonUpdate As Button
     Friend WithEvents TextBoxHiddenId As TextBox
 End Class

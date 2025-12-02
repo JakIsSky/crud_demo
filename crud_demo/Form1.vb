@@ -40,67 +40,17 @@ Public Class Form1
         Dim query As String = "SELECT * FROM crud_demo_db.student_tbl;"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
-                Dim adapter As New MySqlDataAdapter(query, conn) ' Get from Database
-                Dim table As New DataTable() ' Table Object
-                adapter.Fill(table) ' From Adapter to Table Object
-                DataGridView1.DataSource = table ' Display to DataGridView
+                Dim adapter As New MySqlDataAdapter(query, conn)
+                Dim table As New DataTable()
+                adapter.Fill(table)
+                DataGridView1.DataSource = table
+                DataGridView1.Columns("Id").Visible = False
+                DataGridView1.Columns("is_deleted").Visible = False
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-
-    Private Sub ButtonEdit_Click(sender As Object, e As EventArgs) Handles ButtonEdit.Click
-        If DataGridView1.SelectedRows.Count = 0 Then
-            MessageBox.Show("Select a row to update.")
-        End If
-        Dim row As DataGridViewRow = DataGridView1.SelectedRows(0)
-        Dim Id As Integer = row.Cells("id").Value
-
-        Dim query As String = "UPDATE student_tbl SET name = @name, age = @age, email = @email WHERE id = @id"
-        Try
-            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
-                conn.Open()
-                Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
-                    cmd.Parameters.AddWithValue("@age", CInt(TextBoxAge.Text))
-                    cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
-                    cmd.Parameters.AddWithValue("@id", Id)
-                    cmd.ExecuteNonQuery()
-                    MessageBox.Show("Record updated successfully!")
-                End Using
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
-        If DataGridView1.SelectedRows.Count = 0 Then
-            MessageBox.Show("Select a row to delete.")
-        End If
-        Dim row As DataGridViewRow = DataGridView1.SelectedRows(0)
-        Dim Id As Integer = row.Cells("id").Value
-
-        If MessageBox.Show("Delete this record?", "Confirm", MessageBoxButtons.YesNo) = DialogResult.No Then
-            Return
-        End If
-
-        Dim query As String = "DELETE FROM student_tbl WHERE id = @id"
-        Try
-            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
-                conn.Open()
-                Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@id", Id)
-                    cmd.ExecuteNonQuery()
-                    MessageBox.Show("Record deleted successfully!")
-                End Using
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex >= 0 Then
             Dim selectedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
@@ -112,4 +62,46 @@ Public Class Form1
 
         End If
     End Sub
+    Private Sub ButtonEdit_Click(sender As Object, e As EventArgs) Handles ButtonEdit.Click
+        Dim query As String = "UPDATE `crud_demo_db`.`student_tbl` SET `name` = @name, `age` = @age, `email` = @email WHERE `id` = @id"
+        Try
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
+                conn.Open()
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@id", CInt(TextBoxHiddenId.Text))
+                    cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
+                    cmd.Parameters.AddWithValue("@age", CInt(TextBoxAge.Text))
+                    cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("Record updated successfully!")
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
+        Dim query As String = "UPDATE `crud_demo_db`.`student_tbl` 
+                                SET `is_deleted` = 1 
+                                WHERE (`id` = @id);"
+
+        Try
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
+                conn.Open()
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("id", CInt(TextBoxHiddenId.Text))
+                    cmd.ExecuteNonQuery()
+                    MessageBox.Show("Record deleted successfully!")
+                    TextBoxName.Clear()
+                    TextBoxAge.Clear()
+                    TextBoxEmail.Clear()
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
 End Class
