@@ -37,21 +37,21 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonRead_Click(sender As Object, e As EventArgs) Handles ButtonRead.Click
-        Dim query As String = "SELECT * FROM crud_demo_db.student_tbl;"
+        Dim query As String = "SELECT * FROM crud_demo_db.student_tbl WHERE is_deleted=0;"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 Dim adapter As New MySqlDataAdapter(query, conn)
                 Dim table As New DataTable()
                 adapter.Fill(table)
                 DataGridView1.DataSource = table
-                DataGridView1.Columns("Id").Visible = False
+                DataGridView1.Columns("id").Visible = False
                 DataGridView1.Columns("is_deleted").Visible = False
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         If e.RowIndex >= 0 Then
             Dim selectedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
             TextBoxName.Text = selectedRow.Cells("name").Value.ToString()
@@ -59,7 +59,6 @@ Public Class Form1
             TextBoxEmail.Text = selectedRow.Cells("email").Value.ToString()
 
             TextBoxHiddenId.Text = selectedRow.Cells("id").Value.ToString()
-
         End If
     End Sub
     Private Sub ButtonEdit_Click(sender As Object, e As EventArgs) Handles ButtonEdit.Click
